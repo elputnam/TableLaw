@@ -22,7 +22,7 @@ function setup() {
     num = 500;
   }
   for (var j = 0; j < num; j++){
-    pixels[j] = new Pixel(random(-width/2, width/2), random(-height/2, height/2), 10)
+    pixels[j] = new Pixel(random(-width/2, width/2), random(-height/2, height/2), 15)
   }
 }
 
@@ -89,7 +89,7 @@ class Pixel{
     noStroke();
     fill(300, 100, random(100), random(100));
     // fill(random(255), random(100));
-    rect(this.x, this.y, random(this.r), random(this.r)/2);
+    rect(this.x, this.y, random(this.r), random(this.r)/3);
     // rect(this.x, this.y, random(this.r), random(2));
     // circle(this.x, this.y, random(this.r));
   }
