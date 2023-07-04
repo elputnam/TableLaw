@@ -13,7 +13,7 @@ function setup() {
   frameRate(20);
   rectMode(CENTER);
   for (var j = 0; j < 2000; j++){
-    pixels[j] = new Pixel(random(-width/2, width/2), random(-height/2, height/2), 3)
+    pixels[j] = new Pixel(random(-width/2, width/2), random(-height/2, height/2), 5)
   }
 }
 
@@ -43,6 +43,7 @@ function draw() {
     for (let i = 0; i < pixels.length; i++) {
       pixels[i].move();
 		  pixels[i].show();
+      pixels[i].edges();
     }
    pop();
 }
@@ -109,13 +110,17 @@ class Pixel{
     this.r = r;
   }
 
+  edges(){
+    if (this.y > height/2)
+    this.y = -height/2 
+}
   move() {
-    this.x = random(-width/2, width/2);
-    this.y = random(-height/2, height/2);
+    //this.x = random(-width/2, width/2);
+    this.y += 10;
   }
   show() {
     noStroke();
-    fill(50, random(100), random(100));
+    fill(320, random(100), random(100));
     // fill(random(255));
     // rect(this.x, this.y, random(this.r), random(this.r));
     circle(this.x, this.y, random(this.r));
