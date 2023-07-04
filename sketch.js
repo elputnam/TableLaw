@@ -1,3 +1,5 @@
+//The law of table in a quantum field: a deliberate misinterpretation
+
 let pixels = [];
 
 function setup() {
