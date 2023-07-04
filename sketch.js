@@ -1,8 +1,10 @@
-//The law of table in a quantum field: a deliberate misinterpretation
+//The law of table in a quantum field: a deliberate misinterpretation. Memories flicker out of sync. The table is rationality. Everything else is entangled.
 
 let pixels = [];
 let img1;
 let img2;
+let num;
+
 function preload (){
  img1 = loadImage('assets/ELDad_Cigar_2.jpg');
  img2 =loadImage('assets/ELDad_Cigar.jpg')
@@ -14,7 +16,12 @@ function setup() {
   colorMode(HSB, 360, 100, 100, 100);
   frameRate(15);
   rectMode(CENTER);
-  for (var j = 0; j < 2000; j++){
+  if (windowWidth > windowHeight){
+    num = 2000;
+  } else {
+    num = 500;
+  }
+  for (var j = 0; j < num; j++){
     pixels[j] = new Pixel(random(-width/2, width/2), random(-height/2, height/2), 7)
   }
 }
@@ -78,7 +85,7 @@ class Pixel{
   show() {
     noStroke();
     // fill(random(250, 360), random(100), random(100), random(100));
-    fill(random(255));
+    fill(random(255), random(100));
     // rect(this.x, this.y, random(this.r), random(this.r));
     rect(this.x, this.y, random(this.r), random(this.r));
   }
@@ -130,4 +137,14 @@ function table(){
   cone(10, 400);
   pop();
 
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+function mousePressed(){
+
+  let fs = fullscreen();
+  fullscreen(!fs);
 }
