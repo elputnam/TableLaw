@@ -17,12 +17,12 @@ function setup() {
   frameRate(15);
   rectMode(CENTER);
   if (windowWidth > windowHeight){
-    num = 2000;
+    num = 1000;
   } else {
     num = 500;
   }
   for (var j = 0; j < num; j++){
-    pixels[j] = new Pixel(random(-width/2, width/2), random(-height/2, height/2), 7)
+    pixels[j] = new Pixel(random(-width/2, width/2), random(-height/2, height/2), 10)
   }
 }
 
@@ -34,7 +34,7 @@ function draw() {
     translate(0, 0, -500)
     
     scale(2);
-    // img.filter(INVERT);
+    //img2.filter(INVERT);
     tint(random(255));
     image(img2, 0, 0, img2.width/4, img2.height/4);
     tint(random(255), random(100));
@@ -76,18 +76,22 @@ class Pixel{
 
   edges(){
     if (this.y > height/2)
-    this.y = -height/2 
+    this.y = -height/2
+    // if (this.x > width/2){
+    //   this.x = -width/2
+    // } 
 }
   move() {
-    //this.x = random(-width/2, width/2);
-    this.y += random(10);
+    // this.x += random(10);
+    this.y += random(5);
   }
   show() {
     noStroke();
-    // fill(random(250, 360), random(100), random(100), random(100));
-    fill(random(255), random(100));
-    // rect(this.x, this.y, random(this.r), random(this.r));
-    rect(this.x, this.y, random(this.r), random(this.r));
+    fill(300, 100, random(100), random(100));
+    // fill(random(255), random(100));
+    rect(this.x, this.y, random(this.r), random(this.r)/2);
+    // rect(this.x, this.y, random(this.r), random(2));
+    // circle(this.x, this.y, random(this.r));
   }
 }
 
@@ -98,7 +102,7 @@ function table(){
   }
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  //rotateZ(frameCount * 0.01);
+  rotateZ(frameCount * 0.01);
   box(300, 500, 20);
   //leg 1
   push();
